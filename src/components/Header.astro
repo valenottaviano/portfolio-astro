@@ -1,0 +1,37 @@
+---
+import { ModeToggle } from "./ModeToggle.tsx";
+import { MobileNav } from "./MobileNav.tsx";
+
+const routes: any = [
+  { name: "home", path: "/" },
+  { name: "experience", path: "/experience" },
+  { name: "projects", path: "/projects" },
+];
+
+const MobileNavProps = {
+  routes: routes,
+};
+---
+
+<header class="flex justify-between py-16 md:py-20 w-full">
+  <nav class="flex justify-between w-[90vw] md:w-[60vw] mx-auto">
+    <u class="hidden md:flex gap-x-[40px] items-center">
+      {routes.map((route: any) => <a href={route.path}>{route.name}</a>)}
+    </u>
+    <div class="md:hidden ml-auto">
+      <MobileNav {...MobileNavProps} client:load />
+    </div>
+    <div class="hidden md:block"><ModeToggle client:load /></div>
+  </nav>
+
+  <style>
+    a,
+    u {
+      text-decoration: none !important;
+    }
+    a:hover {
+      text-decoration: underline !important;
+      transition: all;
+    }
+  </style>
+</header>
