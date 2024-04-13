@@ -21,7 +21,7 @@ export const MobileNav = (props: any) => {
         {props.routes.map((route: any) => {
           return <a key={route.path} href={route.path}>{route.name}</a>
         })}
-        <ModeToggle />
+        {/* <ModeToggle /> */}
       </div>
     </SheetContent>
   </Sheet>
