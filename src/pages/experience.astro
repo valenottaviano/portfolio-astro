@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import "@/styles/globals.css";
 import Title from "@/components/Title.astro";
+import ExperienceCard from "@/components/ExperienceCard.astro";
 
 interface Experience {
   company: string;
@@ -25,24 +26,23 @@ const experiences: Experience[] = [
       "As Head Scientist at Sylvarum, I lead our efforts to improve plant metabolism through electrostimulation research, aiming to boost plant growth and productivity in agriculture. Collaborating closely with our team, I analyze data and develop algorithms to optimize electrostimulation treatments for different plants. Recently, we secured our first patent, protecting our innovative algorithms. I also spearhead software projects, including an AI system for measuring crop canopy cover and a data-handling platform for sensors. I'm proud to have invented and patented an AI algorithm that optimizes electrostimulation AI models. My work reflects a passion for innovation and a commitment to advancing agricultural practices.",
   },
   {
-    company: "Sylvarum",
+    company: "Circclo",
     companyUrl: "https://sylvarum.com",
-    role: "Head of Data Science",
-    startDate: "Jul 2022",
+    role: "Software Engineer",
+    startDate: "Feb 2024",
     endDate: "Present",
-    location: "Tucumán, Argentina",
+    location: "Remote",
     description:
-      "As Head Scientist at Sylvarum, I lead our efforts to improve plant metabolism through electrostimulation research, aiming to boost plant growth and productivity in agriculture. Collaborating closely with our team, I analyze data and develop algorithms to optimize electrostimulation treatments for different plants. Recently, we secured our first patent, protecting our innovative algorithms. I also spearhead software projects, including an AI system for measuring crop canopy cover and a data-handling platform for sensors. I'm proud to have invented and patented an AI algorithm that optimizes electrostimulation AI models. My work reflects a passion for innovation and a commitment to advancing agricultural practices.",
+      "At CIRCCLO, I am a software engineer. My role involves designing, developing, and maintaining software solutions to meet the company's needs. I collaborate with cross-functional teams to ensure that our software meets high standards of quality, reliability, and performance. Additionally, I contribute to the continuous improvement of our development processes and technologies to drive innovation and efficiency.",
   },
   {
-    company: "Sylvarum",
-    companyUrl: "https://sylvarum.com",
-    role: "Head of Data Science",
-    startDate: "Jul 2022",
+    company: "Freelance",
+    role: "Fullstack Web Developer",
+    startDate: "Jan 2020",
     endDate: "Present",
-    location: "Tucumán, Argentina",
+    location: "Remote",
     description:
-      "As Head Scientist at Sylvarum, I lead our efforts to improve plant metabolism through electrostimulation research, aiming to boost plant growth and productivity in agriculture. Collaborating closely with our team, I analyze data and develop algorithms to optimize electrostimulation treatments for different plants. Recently, we secured our first patent, protecting our innovative algorithms. I also spearhead software projects, including an AI system for measuring crop canopy cover and a data-handling platform for sensors. I'm proud to have invented and patented an AI algorithm that optimizes electrostimulation AI models. My work reflects a passion for innovation and a commitment to advancing agricultural practices.",
+      "As a freelancer full stack web developer, I have had the opportunity to work with a diverse range of companies, gaining valuable experience in the process. My ability to develop web applications from front to back end has made me a valuable asset to these organizations, as I have been able to bring their projects to life from start to finish.",
   },
 ];
 ---
@@ -50,21 +50,6 @@ const experiences: Experience[] = [
 <Layout title="Experience">
   <Title>Experience</Title>
   <div class="flex flex-col gap-5">
-    {
-      experiences.map((experience) => (
-        <div>
-          <h2 class="text-2xl">{experience.company}</h2>
-          <h3 class="text-muted-foreground italic font-light">
-            {experience.role}
-          </h3>
-          <div class="pl-5 border-l-2 border-l-white my-5 space-y-5">
-            <span>
-              {experience.startDate} - {experience.endDate}
-            </span>
-            <p>{experience.description}</p>
-          </div>
-        </div>
-      ))
-    }
+    {experiences.map((experience) => <ExperienceCard {...experience} />)}
   </div>
 </Layout>
