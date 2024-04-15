@@ -1,25 +1,30 @@
 ---
-interface Experience {
-  company: string;
-  companyUrl?: string;
-  role: string;
-  startDate: string;
-  endDate: string;
-  location: string;
-  description: string;
-}
-
+import { Icon } from "astro-icon/components";
 const { company, companyUrl, role, startDate, endDate, location, description } =
   Astro.props;
 ---
 
-<div>
-  <h2 class="text-2xl">{company}</h2>
-  <h3 class="text-muted-foreground italic font-light">
+<div class="flex flex-col items-start justify-start">
+  {
+    companyUrl ? (
+      <a href={companyUrl}>
+        <h2 class="text-2xl flex items-center">
+          <span>{company}</span>
+          {/* <Icon */}
+          {/*   name="mdi:arrow-top-right" */}
+          {/*   class="w-10 text-2xl text-foreground/80" */}
+          {/* /> */}
+        </h2>
+      </a>
+    ) : (
+      <h2 class="text-2xl">{company}</h2>
+    )
+  }
+  <h3 class="italic font-light text-md">
     {role}
   </h3>
-  <div class="pl-5 border-l-2 border-l-white my-5 space-y-5">
-    <span>
+  <div class="pl-5 border-l-2 border-l-primary my-5 space-y-5">
+    <span class="text-sm">
       {startDate} - {endDate}
     </span>
     <p>{description}</p>
