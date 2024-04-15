@@ -1,5 +1,4 @@
 ---
-import { ModeToggle } from "./ModeToggle.tsx";
 import { MobileNav } from "./MobileNav.tsx";
 
 const routes: any = [
@@ -21,7 +20,7 @@ const MobileNavProps = {
     <div class="md:hidden ml-auto">
       <MobileNav {...MobileNavProps} client:load />
     </div>
-    <div class="hidden md:block"><ModeToggle client:load /></div>
+    <!-- <div class="hidden md:block"><ModeToggle client:load /></div> -->
   </nav>
 
   <style>
